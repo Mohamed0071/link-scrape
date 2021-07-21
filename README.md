@@ -1,5 +1,12 @@
 # link-scrape
 
+## Usage
+```bash
+#don't forget to make sure the script is executable by running "chmod +x search.sh"
+./search.sh [search query]
+```
+
+## Setup
 The only package you need for this script to work is jq, the three scraping scripts I included need these packages (maybe im missing something and you figure out how to install them yourself, if you are using arch all of the packages are in aur): "curl, https://github.com/ericchiang/pup, perl, selenium and python".
 
 On arch you can install dependencies via:
