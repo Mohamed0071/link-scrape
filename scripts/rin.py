@@ -1,4 +1,4 @@
-#you need to have python and selenium package installed also if this doesnt work dont ask me, it works for me and I did 0 testing
+#you need to have python, chromium or chrome and selenium package installed also if this doesnt work dont ask me, it works for me and I did 0 testing
 
 import sys
 import time
