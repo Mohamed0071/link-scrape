@@ -19,16 +19,16 @@ On ubuntu:
 sudo apt install curl git jq perl python3 python3-selenium
 ```
 
-And then also install pup using your aur helper of choice (if on arch) or by building it from source https://github.com/ericchiang/pup.
+Pup binary is included in the folder so you dont have to build it but you can also also install it using your aur helper of choice (if on arch) or by building it from source https://github.com/ericchiang/pup in which case you will have to edit the scripts to use the pup you installed.
 
 Clone the repository:
 ```bash
 git clone https://github.com/reggiiie/link-scrape.git
 ```
 
-Download chromedriver from here if you wish to use selenium https://sites.google.com/a/chromium.org/chromedriver/downloads.
+Download chromedriver from here if you wish to use the python script https://sites.google.com/a/chromium.org/chromedriver/downloads, otherwise just rename rin.sh so it doesn't contain .sh and won't try to execute.
 
-After that edit the scraper scripts, you only need to edit rin.py and rin.sh, the other scripts work without any changes.
+After that edit rin.py and follow comments inside, rin.sh has relative path pointing to rin.py so edit it to full path in case it doesn't work.
 
 Search.sh contains a relative path to script directory (if it doesn't work try specifying it), it will run every file with .sh at the end and put their output into json.
 
