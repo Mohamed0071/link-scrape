@@ -6,7 +6,7 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.options import Options
 
-#this should point to a chromedriver that you can get here https://chromedriver.storage.googleapis.com/index.html
+#this should point to a chromedriver that you can get here https://sites.google.com/a/chromium.org/chromedriver/downloads
 
 PATH = "/path/to/chromedriver"
 auto = webdriver.ChromeOptions()
