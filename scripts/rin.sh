@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #scrape using selenium because javascript (might take a minute)
-python /path/to/rin.py "$1" | 
+python "$(dirname "$0")"/rin.py "$1" | 
 
 #extract links
 pup 'table.tablebg a json{}' | 
