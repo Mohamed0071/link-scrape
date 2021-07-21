@@ -21,9 +21,9 @@ sudo apt install curl git jq perl python3 python3-selenium
 
 Pup binary is included in the folder so you dont have to build it but you can also also install it using your aur helper of choice (if on arch) or by building it from source https://github.com/ericchiang/pup in which case you will have to edit the scripts to use the pup you installed.
 
-Clone the repository:
+Clone the repository and make pup executable so we can use it:
 ```bash
-git clone https://github.com/reggiiie/link-scrape.git
+git clone https://github.com/reggiiie/link-scrape.git && chmod +x link-scrape/scripts/pup
 ```
 
 Download chromedriver from here if you wish to use the python script https://sites.google.com/a/chromium.org/chromedriver/downloads, otherwise just rename rin.sh so it doesn't contain .sh and won't try to execute.
