@@ -7,7 +7,7 @@ On arch you can install dependencies via:
 sudo pacman -Syu curl git jq perl python python-selenium
 ```
 
-On ubuntu (didn't test):
+On ubuntu:
 ```bash
 sudo apt install curl git jq perl python3 python3-selenium
 ```
