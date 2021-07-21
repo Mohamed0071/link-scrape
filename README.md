@@ -19,7 +19,7 @@ On ubuntu:
 sudo apt install curl git jq perl python3 python3-selenium
 ```
 
-And then also install pup using your aur helper of choice (if on arch) or by building it from source.
+And then also install pup using your aur helper of choice (if on arch) or by building it from source https://github.com/ericchiang/pup.
 
 Clone the repository:
 ```bash
@@ -30,7 +30,7 @@ Download chromedriver from here if you wish to use selenium https://sites.google
 
 After that edit the scraper scripts, you only need to edit rin.py and rin.sh, the other scripts work without any changes.
 
-In search.sh you should specify the path to the script directory, it will run every file with .sh at the end and put their output into json.
+Search.sh contains a relative path to script directory (if it doesn't work try specifying it), it will run every file with .sh at the end and put their output into json.
 
 It doesnt matter how the scraping scripts work, the only requirement is for them to outupt lines containing url as whatever the script outputs will be added to the output so if you make your own script it will work as long as the output follows this pattern:
 ```
