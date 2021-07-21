@@ -1,4 +1,4 @@
-#you need to have python, chromium or chrome and selenium package installed also if this doesnt work dont ask me, it works for me and I did 0 testing
+#you need to have python, chromium or chrome and selenium package installed 
 
 import sys
 import time
@@ -12,6 +12,9 @@ PATH = "/path/to/chromedriver"
 auto = webdriver.ChromeOptions()
 auto.add_experimental_option("excludeSwitches", ['enable-automation'])
 auto.add_experimental_option('useAutomationExtension', False)
+
+#set this to False to see what is happening in the browser for example for debugging purposes
+
 auto.headless = True
 auto.add_argument("--start-maximized")
 driver = webdriver.Chrome(options=auto,
