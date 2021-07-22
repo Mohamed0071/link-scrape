@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #get the search results
-curl -s "https://gog-games.com/search/$1" |
+curl -s "https://gog-games.com/search/$(printf '%s\n' "$1" | sed -e 's/ /\%20/g')" |
 
 #extract links from html
 "$(dirname "$0")"/pup 'div.game-blocks.grid-view a json{}' |
