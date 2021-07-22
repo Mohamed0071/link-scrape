@@ -1,5 +1,8 @@
 #!/bin/bash
 
+#array of cs.rin.ru board names to output
+boardList=( "Main Forum" "Archive" "Releases" "Steam Content Sharing" "Other Gaming Platforms");
+
 #scrape using selenium because javascript (might take a minute) and parse the output into json
 json=""
 json="$(python "$(dirname "$0")"/rin.py "$1" | "$(dirname "$0")"/pup 'table.tablebg a json{}' | jq '(del(.[].children)) | .[] | select(.text)' | jq -s '.' | jq '. | to_entries | .[]')"
@@ -26,11 +29,13 @@ do
     done
 
     #if board name equals one of the matches it prints it, otherwise it is discarded alongside the corresponding name and link
-    if [ "$board" = "Main Forum" ] || [ "$board" = "Archive" ] || [ "$board" = "Releases" ] || [ "$board" = "Steam Content Sharing" ]
-    then
-        printf '%s- %s\n' "$title" "$board";
-    fi
-    
+    for b in "${boardList[@]}"
+    do
+        if [ "$board" = "$b" ]
+        then
+            printf '%s- %s\n' "$title" "$board";
+        fi
+    done      
     board='';
 done |
 
