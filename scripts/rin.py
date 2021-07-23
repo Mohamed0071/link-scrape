@@ -6,7 +6,9 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.options import Options
 
-#this should point to a chromedriver that you can get here https://sites.google.com/a/chromium.org/chromedriver/downloads
+##########################################################################################################################
+#this should point to a chromedriver that you can get here https://sites.google.com/a/chromium.org/chromedriver/downloads#
+##########################################################################################################################
 
 PATH = "/path/to/chromedriver"
 auto = webdriver.ChromeOptions()
@@ -27,11 +29,15 @@ login.click()
 time.sleep(2)
 username = driver.find_element_by_xpath("/html/body/table/tbody/tr/td/div[2]/form/table/tbody/tr[2]/td[2]/table/tbody/tr[1]/td[2]/input")
 
-#add your userename and password
+#################################
+#add your userename and password#
+#################################
 
 username.send_keys("your username")
+#here                    ^^^
 password = driver.find_element_by_xpath("/html/body/table/tbody/tr/td/div[2]/form/table/tbody/tr[2]/td[2]/table/tbody/tr[2]/td[2]/input")
 password.send_keys("your password")
+#and here                ^^^
 password.send_keys(Keys.RETURN)
 time.sleep(5)
 search = driver.find_element_by_xpath("/html/body/table/tbody/tr/td/div[2]/table[1]/tbody/tr/td/div/form/input[1]")

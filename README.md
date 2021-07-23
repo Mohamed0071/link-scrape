@@ -12,6 +12,8 @@
 ## Setup
 The only package you need for this script to work is jq, the three scraping scripts I included need these packages (maybe im missing something and you figure out how to install them yourself, if you are using arch all of the packages are in aur): "curl, https://github.com/ericchiang/pup, perl, selenium and python".
 
+You can exclude python and python-selenium if you don't wanna scrape cs.rin.ru (needs a few more steps to set up as explained few paragraphs below and is a bit slow).
+
 On arch you can install dependencies via:
 ```bash
 sudo pacman -Syu curl git jq perl python python-selenium
@@ -28,16 +30,23 @@ Clone the repository and make pup executable so we can use it:
 ```bash
 git clone https://github.com/reggiiie/link-scrape.git && chmod +x link-scrape/scripts/pup
 ```
+Search.sh contains array called exclude where you can write names of scripts you don't want to run in case some script doesn't work or is unfinished, search.sh contains a relative path to script directory (if it doesn't work try specifying it), it will run every file with .sh at the end and put their output into json.
 
-Download chromedriver from here if you wish to use the python script https://sites.google.com/a/chromium.org/chromedriver/downloads, otherwise just rename rin.sh so it doesn't contain .sh and won't try to execute.
+If you wanna scrape cs.rin.ru you will have to do a few more steps:
 
-After that edit rin.py and follow comments inside, rin.sh has relative path pointing to rin.py so edit it to full path in case it doesn't work.
+Edit search.sh and remove rin.sh from the "exclude" array.
+
+You need to have chrome or chromium installed (you could also theoretically use firefox but when I tried it didn't work for some reason). 
+
+Download chromedriver from here https://sites.google.com/a/chromium.org/chromedriver/downloads.
+
+Edit rin.py and follow comments inside, rin.sh has relative path pointing to rin.py so edit it to full path in case it doesn't work.
 
 If selenium doesn't work you can try installing it with "sudo pip install selenium" instead of ubuntu repo but idk if that will help, just guessing.
 
-Search.sh contains a relative path to script directory (if it doesn't work try specifying it), it will run every file with .sh at the end and put their output into json.
+## Scripts
 
-It doesnt matter how the scraping scripts work, the only requirement is for them to outupt lines containing url as whatever the script outputs will be added to the output so if you make your own script it will work as long as the output follows this pattern:
+You can write your own scripts and place them into the script directory, but each website is unique so I can't give advice on how to write them. Important part is that it doesn't matter how the scraping scripts work, the only requirement is for them to outupt lines containing url and whatever the script outputs will be added to the final output so if you make your own script it will work as long as the output follows this pattern:
 ```
 https://www.example.com/1
 https://www.example.com/2
