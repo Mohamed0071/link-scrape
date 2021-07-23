@@ -14,12 +14,13 @@ for i in *.sh; do
     #loops through array of excluded items and if any element matches a script name it won't execute
     for y in "${exclude[@]}"
     do
-        if [ "$i" != "$y" ]
+        if [ "$i" = "$y" ]
         then
-            #parse output of whatever script gets run into json
-            jq --arg script "$i" -Rs '{($script):split("\n")}' < <(sh "$i" "$arg");
+            continue 2;
         fi
     done
+    #parse output of whatever script gets run into json
+    jq --arg script "$i" -Rs '{($script):split("\n")}' < <(sh "$i" "$arg");
 done
 
 cd "$dir" || exit
