@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #exclude scripts that you don't wanna run
-exclude=( "example.sh" );
+exclude=( "rin.sh" );
 
 dir="$(pwd)";
 #run all scraping scripts in scripts directory and put the results into array
