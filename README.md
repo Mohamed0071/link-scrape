@@ -56,8 +56,10 @@ Search.sh will then output something like:
 You can then do what you will with this output or edit search.sh to give you a different one.
 
 ## Running Games on Linux
-Since this collection of scripts is made to search for game downloads on linux I migh as well include a few lines on how to actually run them.
+Since this collection of scripts is made to search for game downloads on linux I might as well include a few lines on how to actually run them.
 
 Assuming that you have a working setup with gpu drivers installed most games will run well using steam's compatibility layer called proton, to use it just open steam and click ADD A GAME -> Add a Non-Steam Game... and choose whatever exe you downloaded, then in game properties -> compatibility choose force use of steam compatibility tool and choose a version of proton, also make sure that the shortcut actually points to the game cause steam dislikes spaces in file names and might mess up the path. You might need to go to settings on the upper left corner and enable Steam Play. After that you should probably be able to run your game. You can check how well your games should run on https://www.protondb.com/.
+
+If you have trouble running the game installer you could also run the setup on windows machine or vm and then just copy over the files and add those to steam.
 
 The second option is Lutris that you can install from here: https://lutris.net/downloads/ and install all its dependencies that it needs using this guide: https://github.com/lutris/docs/blob/master/WineDependencies.md. Lutris doesn't give you the option to easily install steam games that you don't own but usually you can just give it gog setup exe and it will install it without issues and it will help you run games that don't work on linux without major tweaks like League of Legends. You can check how well your games should run on https://lutris.net/.
