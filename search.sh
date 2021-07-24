@@ -11,7 +11,7 @@ cd "$(dirname "$0")"/scripts || exit 1;
 argCheck() {
     if [ "$#" -eq 0 ]
     then
-        printf "%s %s: not enough arguments supplied\n" "$0" "$stage";
+        printf "%s%s: not enough arguments supplied\n" "$0" "$stage";
         cd "$dir" || exit 1;
         exit 1;
     fi
@@ -30,7 +30,7 @@ do
             exit 0;
         ;;
         -e|--exclude)
-            stage="$1";
+            stage=" $1";
             shift;
             
             #check if there is any argument after flag
@@ -52,7 +52,7 @@ do
                     exclude+=("$file");
                 else
                     #if doesn't exist print error and exit
-                    printf '%s %s: \"%s\" not found in the script directory\n' "$0" "$stage" "$file";
+                    printf '%s%s: \"%s\" not found in the script directory\n' "$0" "$stage" "$file";
                     exit 1;
                 fi
             done
