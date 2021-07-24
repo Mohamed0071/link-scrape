@@ -12,9 +12,10 @@
 ```
 
 For now flags are: 
-  -h or --help - show flags and usage
-  -e or --exclude - add script names that shouldn't run 
-
+```
+-h or --help - show flags and usage
+-e or --exclude - add script names that shouldn't run 
+```
 For -e you can don't have to include .sh (-e rin) and you can for excluding two or more scripts you can use commas (-e rin.sh,gog-games) or spaces (-e "rin.sh gog-games").
 
 ## Setup
