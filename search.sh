@@ -1,11 +1,63 @@
 #!/bin/bash
 
 #exclude scripts that you don't wanna run
-exclude=( "rin.sh" );
+exclude=("rin.sh");
 
 dir="$(pwd)";
-#run all scraping scripts in scripts directory and put the results into array
+#cd into scripts directory
 cd "$(dirname "$0")"/scripts || exit;
+
+#check if there are any arguments left
+argCheck() {
+    if [ "$#" -eq 0 ]
+    then
+        printf "no argument supplied\n";
+        exit 1;
+    fi
+}
+
+#loops until there are no more arguments
+while [ $# -gt 0 ]
+do
+    case "$1" in
+        #print help and exit
+        -h|--help)
+            printf "Usage: search.sh [FLAGS AND THEIR ARGUMENTS] [SEARCH QUERY]\n\nFlags:\n  -h or --help - show this message\n  -e or --exclude - add script names that shouldn\'t run (separate multiple scripts with commas)\n\n";
+            exit 0;
+        ;;
+        -e|--exclude)
+            shift
+            
+            #check if there is any argument after flag
+            argCheck "$@";
+                                  
+            IFS=', ' read -r -a files <<< "$1"
+            for file in "${files[@]}"
+            do
+                #if file doesn't contain .sh add it making arguments like "gog-games" viable
+                if [[ "$file" != *.sh ]]
+                then
+                    file="$file.sh"
+                fi
+                
+                #checks if script exists
+                if [[ -f "$file" ]]
+                then
+                    #if exists add it to the exclude list
+                    exclude+=("$file");
+                else
+                    #if doesn't exist print error and exit
+                    printf '\"%s\" not found in the script directory\n' "$1";
+                    exit 1;
+                fi
+            done
+            shift
+        ;;
+        *)
+            break;
+        ;;
+    esac
+done
 
 arg="$1";
 
@@ -24,5 +76,3 @@ for i in *.sh; do
 done
 
 cd "$dir" || exit
-
-

@@ -3,16 +3,24 @@
 ## Usage
 ```bash
 #don't forget to make sure the script is executable by running "chmod +x search.sh"
-./search.sh [search query]
+./search.sh [flags] [search query]
 
-#example
-./search.sh "witcher"
+#example 1
+./search.sh witcher
+#example 2 
+./search.sh -e rin.sh "witcher 3"
 ```
+
+For now flags are: 
+  -h or --help - show flags and usage
+  -e or --exclude - add script names that shouldn't run 
+
+For -e you can don't have to include .sh (-e rin) and you can for excluding two or more scripts you can use commas (-e rin.sh,gog-games) or spaces (-e "rin.sh gog-games").
 
 ## Setup
 The only package you need for this script to work is jq, the three scraping scripts I included need these packages (maybe im missing something and you figure out how to install them yourself, if you are using arch all of the packages are in aur): "curl, https://github.com/ericchiang/pup, perl, selenium and python".
 
-You can exclude python and python-selenium if you don't wanna scrape cs.rin.ru (needs a few more steps to set up as explained few paragraphs below and is a bit slow).
+You can exclude python and python-selenium if you don't wanna scrape cs.rin.ru which is excluded by default (needs a few more steps to set up as explained few paragraphs below and is a bit slow).
 
 On arch you can install dependencies via:
 ```bash
