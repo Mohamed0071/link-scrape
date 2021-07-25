@@ -16,7 +16,7 @@ For now flags are:
 -h or --help - show flags and usage
 -e or --exclude - add script names that shouldn't run 
 ```
-For -e you can don't have to include .sh (-e rin) and you can for excluding two or more scripts you can use commas (-e rin.sh,gog-games) or spaces (-e "rin.sh gog-games").
+For -e you don't have to include .sh (-e rin) and you can for excluding two or more scripts you can use commas (-e rin.sh,gog-games) or spaces (-e "rin.sh gog-games").
 
 ## Setup
 The only package you need for this script to work is jq, the three scraping scripts I included need these packages (maybe im missing something and you figure out how to install them yourself, if you are using arch all of the packages are in aur): "curl, https://github.com/ericchiang/pup, perl, selenium and python".
